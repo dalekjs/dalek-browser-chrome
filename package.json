@@ -25,9 +25,6 @@
   "engine": {
     "node": ">=0.8"
   },
-  "bin": {
-    "chromedriver": "./lib/bin/chromedriver"
-  },
   "scripts": {
     "install": "node install.js"
   },
