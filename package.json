@@ -1,0 +1,42 @@
+{
+  "name": "dalek-browser-chrome",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./index.js",
+  "repository": {
+      "type": "git",
+      "url": "http://github.com/dalekjs/dalek-browser-chrome.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dalekjs/dalek-browser-chrome/issues"
+  },
+  "keywords": ["dalekjs", "chrome"],
+  "author": {
+    "name": "Sebastian Golasch",
+    "email": "public@asciidisco.com",
+    "url": "http://asciidisco.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dalekjs/dalek/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engine": {
+    "node": ">=0.8"
+  },
+  "bin": {
+    "chromedriver": "./lib/bin/chromedriver"
+  },
+  "scripts": {
+    "install": "node install.js"
+  },
+  "dependencies": {
+    "adm-zip": "0.2.1",
+    "kew": "~0.1.7",
+    "ncp": "0.4.2",
+    "npmconf": "0.0.24",
+    "rimraf": "~2.0.2",
+    "q": "0.8.x"
+  }
+}
