@@ -1,7 +1,7 @@
 {
   "name": "dalek-browser-chrome",
   "version": "0.0.1",
-  "description": "",
+  "description": "Google Chrome bindings for DalekJS",
   "main": "./index.js",
   "repository": {
       "type": "git",
