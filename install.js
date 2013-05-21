@@ -179,7 +179,7 @@ function copyIntoPlace(tmpPath, targetPath) {
     if (fs.statSync(file).isFile() && file.search('zip') === -1) {
       console.log('Renaming extracted folder', file, '->', targetPath)
       if (process.platform === 'win32') {
-        fs.renameSync(targetPath, targetPath + '.exe')
+        targetPath = targetPath + '.exe';
       }
       ncp(file, targetPath, deferred.makeNodeResolver())
       break
