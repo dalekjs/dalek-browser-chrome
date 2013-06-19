@@ -108,8 +108,8 @@ module.exports = function (grunt) {
   grunt.registerTask('prepare', function () {
     var fs = require('fs');
 
-    var platoDummyFolders = ['coverage', 'report', 'report/coverage', 'report/complexity', 'report/complexity/files', 'report/complexity/files/test', 'report/complexity/files/index_js', 'report/complexity/files/install_js'];
-    var platoDummyFiles = ['/report/complexity/report.history.json', '/report/complexity/files/report.history.json', '/report/complexity/files/index_js/report.history.json', '/report/complexity/files/install_js/report.history.json'];
+    var platoDummyFolders = ['coverage', 'report', 'report/coverage', 'report/complexity', 'report/complexity/files', 'report/complexity/files/test', 'report/complexity/files/index_js', 'report/complexity/files/install_js', 'report/complexity/files/lib_chromedriver_js'];
+    var platoDummyFiles = ['/report/complexity/report.history.json', '/report/complexity/files/report.history.json', '/report/complexity/files/index_js/report.history.json', '/report/complexity/files/install_js/report.history.json', 'report/complexity/files/lib_chromedriver_js/report.history.json'];
 
     // loopy loop
     ['/test/'].forEach(function (folder) {
