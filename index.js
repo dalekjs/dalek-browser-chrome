@@ -77,7 +77,7 @@ var ChromeDriver = {
    *
    * @property
    * @type string
-   * @default ''
+   * @default /
    */
 
   path: '/',
