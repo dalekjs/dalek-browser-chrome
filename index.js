@@ -32,8 +32,11 @@ var spawn = require('child_process').spawn;
 var chromedriver = require('./lib/chromedriver');
 
 /**
- * @module FirefoxDriver
- * @class FirefoxDriver
+ * Chrome Driver base class
+ *
+ * @module DalekJS
+ * @class ChromeDriver
+ * @namespace Browser
  */
 
 var ChromeDriver = {
@@ -41,7 +44,7 @@ var ChromeDriver = {
   /**
    * Verbose version of the browser name
    *
-   * @property
+   * @property longName
    * @type string
    * @default Google Chrome
    */
@@ -53,7 +56,7 @@ var ChromeDriver = {
    * The port may change, cause the port conflict resultion
    * tool might pick another one, if the default one is blocked
    *
-   * @property
+   * @property port
    * @type integer
    * @default 9002
    */
@@ -65,7 +68,7 @@ var ChromeDriver = {
    * The host may be overriden with
    * a user configured value
    *
-   * @property
+   * @property host
    * @type string
    * @default localhost
    */
@@ -75,7 +78,7 @@ var ChromeDriver = {
   /**
    * Root path of the ChromeWebDriverServer
    *
-   * @property
+   * @property path
    * @type string
    * @default /
    */
@@ -85,7 +88,7 @@ var ChromeDriver = {
   /**
    * Child process instance of the Chrome browser
    *
-   * @property
+   * @property spawned
    * @type null|Object
    */
 
@@ -95,7 +98,7 @@ var ChromeDriver = {
    * Resolves the driver port
    *
    * @method getPort
-   * @return integer
+   * @return {integer} port WebDriver server port
    */
 
   getPort: function () {
@@ -106,7 +109,7 @@ var ChromeDriver = {
    * Returns the driver host
    *
    * @method getHost
-   * @type string
+   * @return {string} host WebDriver server hostname
    */
 
   getHost: function () {
@@ -117,7 +120,7 @@ var ChromeDriver = {
    * Launches the ChromeWebDriverServer
    *
    * @method launch
-   * @return Q.promise
+   * @return {object} promise Browser promise
    */
 
   launch: function () {
@@ -144,7 +147,9 @@ var ChromeDriver = {
 
   kill: function () {
     this.spawned.kill('SIGTERM');
+    return this;
   }
 };
 
+// expose the module
 module.exports = ChromeDriver;
