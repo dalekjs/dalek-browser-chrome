@@ -25,9 +25,6 @@
     "blanket": "~1.1.5",
     "chai": "~1.7.0"
   },
-  "peerDependencies": {
-    "dalekjs": "~0.0.1"
-  },
   "scripts": {
     "test": "grunt test",
     "install": "node install.js"
