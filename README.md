@@ -8,7 +8,7 @@ dalek-browser-chrome
 [![Dependency Status](https://david-dm.org/dalekjs/dalek-browser-chrome.png)](https://david-dm.org/dalekjs/dalek-browser-chrome)
 [![devDependency Status](https://david-dm.org/dalekjs/dalek-browser-chrome/dev-status.png)](https://david-dm.org/dalekjs/dalek-browser-chrome#info=devDependencies)
 [![NPM version](https://badge.fury.io/js/dalek-browser-chrome.png)](http://badge.fury.io/js/dalek-browser-chrome)
-[![Coverage](http://dalekjs.github.io/dalekjs.com/package/dalek-browser-chrome/master/coverage/coverage.png)](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/index.html)
+[![Coverage](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/coverage.png)](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/index.html)
 [![unstable](https://rawgithub.com/hughsk/stability-badges/master/dist/unstable.svg)](http://github.com/hughsk/stability-badges)
 
 [![NPM](https://nodei.co/npm/dalek-browser-chrome.png)](https://nodei.co/npm/dalek-browser-chrome/)
