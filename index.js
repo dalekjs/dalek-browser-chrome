@@ -37,6 +37,8 @@ var chromedriver = require('./lib/chromedriver');
  * @module DalekJS
  * @class ChromeDriver
  * @namespace Browser
+ * @part chrome
+ * @api
  */
 
 var ChromeDriver = {
