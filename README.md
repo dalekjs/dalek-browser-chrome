@@ -8,7 +8,7 @@ dalek-browser-chrome
 [![Dependency Status](https://david-dm.org/dalekjs/dalek-browser-chrome.png)](https://david-dm.org/dalekjs/dalek-browser-chrome)
 [![devDependency Status](https://david-dm.org/dalekjs/dalek-browser-chrome/dev-status.png)](https://david-dm.org/dalekjs/dalek-browser-chrome#info=devDependencies)
 [![NPM version](https://badge.fury.io/js/dalek-browser-chrome.png)](http://badge.fury.io/js/dalek-browser-chrome)
-[![Coverage](http://dalekjs.github.io/dalekjs.com/package/dalek-browser-chrome/master/coverage/coverage.png)](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/index.html)
+[![Coverage](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/coverage.png)](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/index.html)
 [![unstable](https://rawgithub.com/hughsk/stability-badges/master/dist/unstable.svg)](http://github.com/hughsk/stability-badges)
 
 [![NPM](https://nodei.co/npm/dalek-browser-chrome.png)](https://nodei.co/npm/dalek-browser-chrome/)
@@ -20,7 +20,8 @@ It provides all a WebDriverServer & browser launcher for chrome, used by DalekJS
 
 ## Ressources
 
-[API Documentation](http://dalekjs.com/package/dalek-browser-chrome/master/api/index.html) -
+[API Docs](http://dalekjs.com/package/dalek-browser-chrome/master/api/index.html) -
+[Trello](https://trello.com/b/xhw6Jv7A/dalek-browser-chrome) -
 [Code coverage](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/index.html) -
 [Code complexity](http://dalekjs.com/package/dalek-browser-chrome/master/complexity/index.html) -
 [Contributing](https://github.com/dalekjs/dalek-browser-chrome/blob/master/CONTRIBUTING.md) -
