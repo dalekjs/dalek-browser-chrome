@@ -32,12 +32,31 @@ var spawn = require('child_process').spawn;
 var chromedriver = require('./lib/chromedriver');
 
 /**
- * Chrome Driver base class
+ * This module is a browser plugin for [DalekJS](//github.com/dalekjs/dalek).
+ * It provides all a WebDriverServer & browser launcher for Google Chrome.
+ *
+ * The browser plugin can be installed with the following command:
+ *
+ * ```
+ * $ npm install dalek-browser-chrome --save-dev
+ * ```
+ *
+ * You can use the browser plugin by adding a config option to the your Dalekfile
+ *
+ * ```js
+ * "browsers": ["chrome"]
+ * ```
+ *
+ * Or you can tell Dalek that it should test in this browser via the command line:
+ *
+ * ```
+ * $ dalek mytest.js -b chrome
+ * ```
  *
  * @module DalekJS
  * @class ChromeDriver
  * @namespace Browser
- * @part chrome
+ * @part Chrome
  * @api
  */
 

@@ -12,11 +12,7 @@ dalek-browser-chrome
 [![unstable](https://rawgithub.com/hughsk/stability-badges/master/dist/unstable.svg)](http://github.com/hughsk/stability-badges)
 
 [![NPM](https://nodei.co/npm/dalek-browser-chrome.png)](https://nodei.co/npm/dalek-browser-chrome/)
-
-## Warning
-
-This module is a browser plugin for [DalekJS](https://github.com/dalekjs/dalek).
-It provides all a WebDriverServer & browser launcher for chrome, used by DalekJS.
+[![NPM](https://nodei.co/npm-dl/dalek-browser-chrome.png)](https://nodei.co/npm/dalek-browser-chrome/)
 
 ## Ressources
 
@@ -28,6 +24,29 @@ It provides all a WebDriverServer & browser launcher for chrome, used by DalekJS
 [User Docs](http://dalekjs.com/docs/chrome.html) -
 [Homepage](http://dalekjs.com) -
 [Twitter](http://twitter.com/dalekjs)
+
+## Docs
+
+This module is a browser plugin for [DalekJS](//github.com/dalekjs/dalek).
+It provides all a WebDriverServer & browser launcher for Google Chrome.
+
+The browser plugin can be installed with the following command:
+
+```
+$ npm install dalek-browser-chrome --save-dev
+```
+
+You can use the browser plugin by adding a config option to the your Dalekfile
+
+```js
+"browsers": ["chrome"]
+```
+
+Or you can tell Dalek that it should test in this browser via the command line:
+
+```
+$ dalek mytest.js -b chrome
+```
 
 ## Help Is Just A Click Away
 
