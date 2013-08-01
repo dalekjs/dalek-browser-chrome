@@ -37,19 +37,19 @@ var chromedriver = require('./lib/chromedriver');
  *
  * The browser plugin can be installed with the following command:
  *
- * ```
+ * ```bash
  * $ npm install dalek-browser-chrome --save-dev
  * ```
  *
  * You can use the browser plugin by adding a config option to the your Dalekfile
  *
- * ```js
+ * ```javascript
  * "browsers": ["chrome"]
  * ```
  *
  * Or you can tell Dalek that it should test in this browser via the command line:
  *
- * ```
+ * ```bash
  * $ dalek mytest.js -b chrome
  * ```
  *
