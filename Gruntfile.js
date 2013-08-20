@@ -256,7 +256,6 @@ module.exports = function (grunt) {
     }
   });
 
-
   // archives the docs if a new version appears
   grunt.registerTask('archive', function () {
     var done = this.async();
