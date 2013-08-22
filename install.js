@@ -23,13 +23,13 @@ var libPath = path.join(__dirname, 'lib', 'bin', 'chromedriver');
 var downloadUrl = 'http://chromedriver.googlecode.com/files/chromedriver2_';
 
 if (process.platform === 'linux' && process.arch === 'x64') {
-  downloadUrl += 'linux64_0.8.zip';
+  downloadUrl += 'linux64_0.7.zip';
 } else if (process.platform === 'linux') {
-  downloadUrl += 'linux32_0.8.zip';
+  downloadUrl += 'linux32_0.7.zip';
 } else if (process.platform === 'darwin') {
-  downloadUrl += 'mac32_0.8.zip';
+  downloadUrl += 'mac32_0.7.zip';
 } else if (process.platform === 'win32') {
-  downloadUrl += 'win32_0.8.zip';
+  downloadUrl += 'win32_0.7.zip';
 } else {
   console.log('Unexpected platform or architecture:', process.platform, process.arch);
   process.exit(1);
