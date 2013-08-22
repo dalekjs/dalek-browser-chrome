@@ -20,16 +20,16 @@ var npmconf = require('npmconf');
 var util = require('util');
 
 var libPath = path.join(__dirname, 'lib', 'bin', 'chromedriver');
-var downloadUrl = 'http://chromedriver.googlecode.com/files/chromedriver_';
+var downloadUrl = 'http://chromedriver.googlecode.com/files/chromedriver2_';
 
 if (process.platform === 'linux' && process.arch === 'x64') {
-  downloadUrl += 'linux64_26.0.1383.0.zip';
+  downloadUrl += 'linux64_0.8.zip';
 } else if (process.platform === 'linux') {
-  downloadUrl += 'linux32_26.0.1383.0.zip';
+  downloadUrl += 'linux32_0.8.zip';
 } else if (process.platform === 'darwin') {
-  downloadUrl += 'mac_26.0.1383.0.zip';
+  downloadUrl += 'mac_0.8.zip';
 } else if (process.platform === 'win32') {
-  downloadUrl += 'win_26.0.1383.0.zip';
+  downloadUrl += 'win_0.8.zip';
 } else {
   console.log('Unexpected platform or architecture:', process.platform, process.arch);
   process.exit(1);
