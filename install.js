@@ -27,9 +27,9 @@ if (process.platform === 'linux' && process.arch === 'x64') {
 } else if (process.platform === 'linux') {
   downloadUrl += 'linux32_0.8.zip';
 } else if (process.platform === 'darwin') {
-  downloadUrl += 'mac_0.8.zip';
+  downloadUrl += 'mac32_0.8.zip';
 } else if (process.platform === 'win32') {
-  downloadUrl += 'win_0.8.zip';
+  downloadUrl += 'win32_0.8.zip';
 } else {
   console.log('Unexpected platform or architecture:', process.platform, process.arch);
   process.exit(1);
