@@ -74,7 +74,7 @@ var ChromeDriver = {
 
   /**
    * Default port of the ChromeWebDriverServer
-   * The port may change, cause the port conflict resultion
+   * The port may change, cause the port conflict resolution
    * tool might pick another one, if the default one is blocked
    *
    * @property port
@@ -86,7 +86,7 @@ var ChromeDriver = {
 
   /**
    * Default host of the ChromeWebDriverServer
-   * The host may be overriden with
+   * The host may be overridden with
    * a user configured value
    *
    * @property host
@@ -160,7 +160,7 @@ var ChromeDriver = {
   },
 
   /**
-   * Kills the ChromeWebDriverServer processe
+   * Kills the ChromeWebDriverServer process
    *
    * @method kill
    * @chainable
