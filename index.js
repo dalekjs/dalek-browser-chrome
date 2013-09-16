@@ -26,8 +26,8 @@
 
 // ext. libs
 var Q = require('q');
-var cp = require('child_process');
 var fs = require('fs');
+var cp = require('child_process');
 var portscanner = require('portscanner');
 
 // int. libs
