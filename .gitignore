@@ -21,3 +21,4 @@ report.zip
 .DS_STORE
 
 lib/bin/chromedriver
+lib/bin/chromedriver.exe
