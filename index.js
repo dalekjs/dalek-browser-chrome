@@ -238,6 +238,8 @@ var ChromeDriver = {
    * Different browser types (Canary / Chromium) that can be controlled
    * via the Chromedriver
    *
+   * @property browserTypes
+   * @type object
    */
 
   browserTypes: {
@@ -432,6 +434,11 @@ var ChromeDriver = {
    */
 
   _checkUserDefinedBinary: function (binary) {
+    // check if we need to replace the users home directory
+    if (process.platform === 'darwin' && binary.trim()[0] === '~') {
+      binary = binary.replace('~', process.env.HOME);
+    }
+    
     // check if the binary exists
     if (!fs.existsSync(binary)) {
       this.reporterEvents.emit('error', 'dalek-driver-chrome: Binary not found: ' + binary);
@@ -505,11 +512,13 @@ var ChromeDriver = {
     var dataStr = data + '';
 
     // timeout to catch if chromedriver couldnt be launched
-    var timeout = setTimeout(function () {
-      deferred.reject();
-      this.reporterEvents.emit('error', 'dalek-driver-chrome: Could not launch Chromedriver');
-      process.exit(127);
-    }.bind(this), 2000);
+    if (dataStr.search('DVFreeThread') === -1) {
+      var timeout = setTimeout(function () {
+        deferred.reject();
+        this.reporterEvents.emit('error', 'dalek-driver-chrome: Could not launch Chromedriver');
+        process.exit(127);
+      }.bind(this), 2000);
+    }
 
     // look for the success message
     if (dataStr.search('Starting ChromeDriver') !== -1) {
