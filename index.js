@@ -510,10 +510,11 @@ var ChromeDriver = {
 
   _catchDriverLogs: function (deferred, data) {
     var dataStr = data + '';
+    var timeout = null;
 
     // timeout to catch if chromedriver couldnt be launched
     if (dataStr.search('DVFreeThread') === -1) {
-      var timeout = setTimeout(function () {
+      timeout = setTimeout(function () {
         deferred.reject();
         this.reporterEvents.emit('error', 'dalek-driver-chrome: Could not launch Chromedriver');
         process.exit(127);
@@ -523,7 +524,9 @@ var ChromeDriver = {
     // look for the success message
     if (dataStr.search('Starting ChromeDriver') !== -1) {
       this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Started ChromeDriver');
-      clearTimeout(timeout);
+      if (timeout !== null) {
+        clearTimeout(timeout);
+      }
       deferred.resolve();
     }
 
