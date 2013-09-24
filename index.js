@@ -319,7 +319,7 @@ var ChromeDriver = {
    * @return {object} promise Browser promise
    */
 
-  launch: function (configuration, events, config) {
+  launch: function (configuration, events, config) {   
     var deferred = Q.defer();
 
     // store injected configuration/log event handlers
@@ -727,21 +727,27 @@ var ChromeDriver = {
   _processListWin: function (callback, err, stdout) {
     var p = [];
     stdout.split('\r\n').forEach(this._splitProcessListWin.bind(this, p));
-
     var proc = [];
     var head = null;
     while (p.length > 1) {
       var rec = p.shift();
-      var tmp = {};
       rec = rec.replace(/\"\,/gi,'";').replace(/\"|\'/gi,'').split(';');
-      for (var j=0;j<rec.length;j++){
-        tmp[head[j]] = rec[j].replace(/\"|\'/gi,'');
+      if (head === null){
+        head = rec;
+        for (var i=0;i<head.length;i++){
+          head[i] = head[i].replace(/ /gi,'');
+        }
+      } else {
+        var tmp = {};
+        for (var j=0;j<rec.length;j++){
+          tmp[head[j]] = rec[j].replace(/\"|\'/gi,'');
+        }
+        proc.push(tmp);
       }
-      proc.push(tmp);
     }
 
     var result = [];
-    proc.forEach(this._filterProcessItemsWin.bind(this, result));
+    proc.forEach(this._filterProcessItemsWin.bind(this, result));  
     callback(null, result);
     return this;
   },
@@ -761,7 +767,7 @@ var ChromeDriver = {
       if (process[key] === this.processName) {
         result.push(process.PID);
       }
-    });
+    }.bind(this));
     return this;
   },
 
