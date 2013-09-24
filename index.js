@@ -319,7 +319,7 @@ var ChromeDriver = {
    * @return {object} promise Browser promise
    */
 
-  launch: function (configuration, events, config) {   
+  launch: function (configuration, events, config) {
     var deferred = Q.defer();
 
     // store injected configuration/log event handlers
@@ -747,7 +747,7 @@ var ChromeDriver = {
     }
 
     var result = [];
-    proc.forEach(this._filterProcessItemsWin.bind(this, result));  
+    proc.forEach(this._filterProcessItemsWin.bind(this, result));
     callback(null, result);
     return this;
   },

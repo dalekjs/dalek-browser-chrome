@@ -71,7 +71,7 @@ module.exports = function (grunt) {
       generic: {
         src: '<%= src.complexity %>',
         options: {
-          cyclomatic: 4,
+          cyclomatic: 5,
           halstead: 20,
           maintainability: 100
         }
