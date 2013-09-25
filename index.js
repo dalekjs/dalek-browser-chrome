@@ -673,10 +673,7 @@ var ChromeDriver = {
   _splitProcessListNix: function(result, line) {
     var data = line.split(' ');
     data = data.filter(this._filterProcessItemsNix.bind(this));
-
-    if (data[1] !== '??') {
-      result.push(data[0]);
-    }
+    result.push(data[0]);
     return this;
   },
 
