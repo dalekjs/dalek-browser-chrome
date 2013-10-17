@@ -117,6 +117,13 @@ module.exports = function (grunt) {
       options: {
         files: ['index.js']
       }
+    },
+
+    // archives the docs if a new version appears
+    archive: {
+      options: {
+        file: 'chrome.html'
+      }
     }
 
   });
