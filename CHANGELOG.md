@@ -1,4 +1,13 @@
 <a name="v0.0.5"></a>
+### v0.0.5 (2013-10-17)
+
+
+#### Bug Fixes
+
+* **gruntfile:** Added missing paramters ([84df0635](http://github.com/dalekjs/dalek-browser-chrome/commit/84df06351cf4a2200bacf33e84af683d337dab86))
+* **readme:** Typo in image path * 'master' of github.com:dalekjs/dalek-browser-chrome:   fix  ([9a45d2ea](http://github.com/dalekjs/dalek-browser-chrome/commit/9a45d2eab36689ec43dd83ea2ff4913094bc3679))
+
+<a name="v0.0.5"></a>
 ### v0.0.5 (2013-09-25)
 
 #### Bug Fixes
