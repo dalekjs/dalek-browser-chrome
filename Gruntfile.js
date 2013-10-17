@@ -90,11 +90,15 @@ module.exports = function (grunt) {
           'report/coverage',
           'report/complexity',
           'report/complexity/files',
-          'report/complexity/files/index_js'
+          'report/complexity/files/index_js',
+          'report/complexity/files/install_js',
+          'report/complexity/files/lib_chromedriver_js'
         ],
         files: [
           'report.history.json',
-          'files/index_js/report.history.json'
+          'files/index_js/report.history.json',
+          'files/install_js/report.history.json',
+          'files/lib_chromedriver_js/report.history.json'
         ]
       }
     },
@@ -126,7 +130,7 @@ module.exports = function (grunt) {
   
   // split test & docs for speed
   grunt.registerTask('test', ['clean:coverage', 'prepareCoverage', 'concurrent:test', 'generateCoverageBadge']);
-  grunt.registerTask('docs', ['clean:reportZip', 'clean:report', 'preparePlato', 'concurrent:docs', 'compress']);
+  grunt.registerTask('docs', ['clean:reportZip', 'clean:report', 'preparePlato', 'documantix', 'concurrent:docs', 'compress']);
   
   // release tasks
   grunt.registerTask('releasePatch', ['test', 'bump-before:patch', 'contributors', 'changelog', 'bump-release:patch']);
