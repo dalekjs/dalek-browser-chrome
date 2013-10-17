@@ -7,24 +7,24 @@
 * **gruntfile:** Added missing paramters ([84df0635](http://github.com/dalekjs/dalek-browser-chrome/commit/84df06351cf4a2200bacf33e84af683d337dab86))
 * **readme:** Typo in image path * 'master' of github.com:dalekjs/dalek-browser-chrome:   fix  ([9a45d2ea](http://github.com/dalekjs/dalek-browser-chrome/commit/9a45d2eab36689ec43dd83ea2ff4913094bc3679))
 
-<a name="v0.0.5"></a>
-### v0.0.5 (2013-09-25)
+<a name="v0.0.4"></a>
+### v0.0.4 (2013-09-25)
 
 #### Bug Fixes
 
 * **core:**
   * fixed chrome process cant be killed issue ([4fb9545](https://github.com/dalekjs/dalek-browser-chrome/commit/4fb954598586a656c904b3b2abcb999fca2727ef))
 
-<a name="v0.0.4"></a>
-### v0.0.4 (2013-09-23)
+<a name="v0.0.3"></a>
+### v0.0.3 (2013-09-23)
 
 #### Bug Fixes
 
 * **core:**
   * fixed Windows loader issue with process list management ([f95eefd](https://github.com/dalekjs/dalek-browser-chrome/commit/f95eefd24268c2fdcf8d80091c793895dc795dc4))
 
-<a name="v0.0.3"></a>
-### v0.0.3 (2013-09-23)
+<a name="v0.0.2"></a>
+### v0.0.2 (2013-09-23)
 
 #### Features
 
@@ -50,8 +50,8 @@
 * **core:**
   * proper shutdown of chromedriver ([60b5fd4](https://github.com/dalekjs/dalek-browser-chrome/commit/60b5fd47dad069d062510c782a5db01fed6122c8))
 
-<a name="v0.0.2"></a>
-### v0.0.2 (2013-08-22)
+<a name="v0.0.1"></a>
+### v0.0.1 (2013-08-22)
 
 #### Bug Fixes
 
