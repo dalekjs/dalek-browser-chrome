@@ -140,9 +140,9 @@ module.exports = function (grunt) {
   grunt.registerTask('docs', ['clean:reportZip', 'clean:report', 'preparePlato', 'documantix', 'concurrent:docs', 'compress']);
   
   // release tasks
-  grunt.registerTask('releasePatch', ['test', 'bump-before:patch', 'contributors', 'changelog', 'bump-release:patch']);
-  grunt.registerTask('releaseMinor', ['test', 'bump-before:minor', 'contributors', 'changelog', 'bump-release:minor']);
-  grunt.registerTask('releaseMajor', ['test', 'bump-before:major', 'contributors', 'changelog', 'bump-release:major']);
+  grunt.registerTask('releasePatch', ['test', 'bump-only:patch', 'contributors', 'changelog', 'bump-commit:patch']);
+  grunt.registerTask('releaseMinor', ['test', 'bump-only:minor', 'contributors', 'changelog', 'bump-commit:minor']);
+  grunt.registerTask('releaseMajor', ['test', 'bump-only:major', 'contributors', 'changelog', 'bump-commit:major']);
   
   // clean, test, generate docs (the CI task)
   grunt.registerTask('all', ['clean', 'test', 'docs']);
