@@ -31,7 +31,7 @@
 #### Typos
 
 * **readme:**
-  * typos in documentation ([b166b9e](https://github.com/dalekjs/dalek-browser-chrome/commit/d17ecda2486a3d1565097dfe1a9e0147c2c17711
+  * typos in documentation ([b166b9e](https://github.com/dalekjs/dalek-browser-chrome/commit/d17ecda2486a3d1565097dfe1a9e0147c2c17711))
 
 #### Bug Fixes
 
