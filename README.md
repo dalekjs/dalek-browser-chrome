@@ -36,13 +36,74 @@ The browser plugin can be installed with the following command:
 $ npm install dalek-browser-chrome --save-dev
 ```
 
-You can use the browser plugin by adding a config option to the your Dalekfile
+You can use the browser plugin by adding a config option to the your [Dalekfile](/pages/config.html)
 
-```js
-"browsers": ["chrome"]
+```
+"browser": ["chrome"]
 ```
 
 Or you can tell Dalek that it should test in this browser via the command line:
+
+```
+$ dalek mytest.js -b chrome
+```
+
+The Webdriver Server tries to open Port 9002 by default,
+if this port is blocked, it tries to use a port between 9003 & 9092
+You can specifiy a different port from within your [Dalekfile](/pages/config.html) like so:
+
+```
+"browsers": {
+  "chrome": {
+    "port": 5555 
+  }
+}
+```
+
+It is also possible to specify a range of ports:
+
+```
+"browsers": {
+  "chrome": {
+    "portRange": [6100, 6120] 
+  }
+}
+```
+
+If you would like to test Chrome Canary oder Chromium releases, you can simply apply a snd. argument,
+which defines the browser type:
+
+```
+$ dalek mytest.js -b chrome:canary
+```
+
+for canary, and if you would like to use chromium, just append `:chromium`:
+
+```
+$ dalek mytest.js -b chrome:chromium
+```
+
+This will only work if you installed your browser in the default locations,
+if the browsers binary is located in a non default location, you are able to specify
+its location in your [Dalekfile](/pages/config.html):
+
+```javascript
+"browsers": {
+  "chrome": {
+    "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
+  }
+}
+```
+
+This also works for the canary & chromium builds
+
+```javascript
+"browsers": {
+  "chrome": {
+    "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
+  }
+}
+```
 
 ```
 $ dalek mytest.js -b chrome
