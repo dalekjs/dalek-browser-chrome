@@ -1,3 +1,11 @@
+<a name="v0.0.6"></a>
+### v0.0.6 (2013-10-29)
+
+
+#### Bug Fixes
+
+* **core:** fixed process resolving on linux ([ab9d6591](http://github.com/dalekjs/dalek-browser-chrome/commit/ab9d659106ae00a424f08afdc29af0d3ea746469))
+
 <a name="v0.0.5"></a>
 ### v0.0.5 (2013-10-17)
 
