@@ -60,21 +60,21 @@ var chromedriver = require('./lib/chromedriver');
  * You can specifiy a different port from within your [Dalekfile](/pages/config.html) like so:
  *
  * ```javascript
- * "browsers": {
+ * "browsers": [{
  *   "chrome": {
  *     "port": 5555 
  *   }
- * }
+ * }]
  * ```
  *
  * It is also possible to specify a range of ports:
  *
  * ```javascript
- * "browsers": {
+ * "browsers": [{
  *   "chrome": {
  *     "portRange": [6100, 6120] 
  *   }
- * }
+ * }]
  * ```
  *
  * If you would like to test Chrome Canary oder Chromium releases, you can simply apply a snd. argument,
@@ -95,21 +95,21 @@ var chromedriver = require('./lib/chromedriver');
  * its location in your [Dalekfile](/pages/config.html):
  *
  * ```javascript
- * "browsers": {
+ * "browsers": [{
  *   "chrome": {
  *     "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
  *   }
- * }
+ * }]
  * ```
  *
  * This also works for the canary &amp; chromium builds
  *
  * ```javascript
- * "browsers": {
+ * "browsers": [{
  *   "chrome": {
  *     "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
  *   }
- * }
+ * }]
  * ```
  *
  * @module DalekJS
