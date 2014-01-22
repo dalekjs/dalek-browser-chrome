@@ -176,7 +176,8 @@ var ChromeDriver = {
    */
 
   desiredCapabilities: {
-    browserName: 'chrome'
+    browserName: 'chrome',
+    chromeOptions: {}
   },
 
   /**
@@ -333,13 +334,19 @@ var ChromeDriver = {
       browsers.forEach(this._checkUserDefinedPorts.bind(this));
     }
 
-    // check for a user defined binary
-    if (configuration && configuration.binary) {
-      var binaryExists = this._checkUserDefinedBinary(configuration.binary);
-      if (binaryExists) {
-        // check for new verbose & process name
-        this.longName = this._modifyVerboseBrowserName(configuration);
-        this.processName = this._fetchProcessName(configuration);
+    if (configuration) {
+      if (configuration.chromeOptions) {
+        this.desiredCapabilities.chromeOptions = configuration.chromeOptions;
+      }
+
+      // check for a user defined binary
+      if (configuration.binary) {
+        var binaryExists = this._checkUserDefinedBinary(configuration.binary);
+        if (binaryExists) {
+          // check for new verbose & process name
+          this.longName = this._modifyVerboseBrowserName(configuration);
+          this.processName = this._fetchProcessName(configuration);
+        }
       }
     }
 
@@ -447,9 +454,7 @@ var ChromeDriver = {
     }
 
     // add the binary to the desired capabilities
-    this.desiredCapabilities.chromeOptions = {
-      binary: binary
-    };
+    this.desiredCapabilities.chromeOptions.binary = binary;
 
     return true;
   },
