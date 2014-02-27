@@ -338,10 +338,11 @@ var ChromeDriver = {
     this.configuration = configuration;
     this.config = config;
 
-    // check for a user set port
+    // check for user settings
     var browsers = this.config.get('browsers');
     if (browsers && Array.isArray(browsers)) {
-      browsers.forEach(this._checkUserDefinedPorts.bind(this));
+      // check for a user set port & arguments
+      browsers.forEach(this._checkUserDefinedArgs.bind(this));
     }
 
     if (configuration) {
@@ -422,7 +423,7 @@ var ChromeDriver = {
    * @private
    */
 
-  _checkUserDefinedPorts: function (browser) {
+  _checkUserDefinedArgs: function (browser) {
     // check for a single defined port
     if (browser.chrome && browser.chrome.port) {
       this.port = parseInt(browser.chrome.port, 10);
@@ -437,16 +438,10 @@ var ChromeDriver = {
       this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Switching to user defined port(s): ' + this.port + ' -> ' + this.maxPort);
     }
 
-    return this;
-  },
-
-  /**
    * Process user defined arguments
    *
    * @method _checkUserDefinedArgs
    * @param {object} browser Browser configuration
-   * @chainable
-   * @private
    */
 
   _checkUserDefinedArgs: function (browser) {
@@ -457,7 +452,7 @@ var ChromeDriver = {
     }
 
     return this;
-  }
+  },
 
   /**
    * Checks if the binary exists,
@@ -526,11 +521,10 @@ var ChromeDriver = {
 
   _startChromedriver: function (deferred, err, result) {
     var args = ['--port=' + this.getPort(), '--url-base=' + this.path];
-    if(0!==this.userArgs)
+    if(0!==this.userArgs.length)
     {
-        args.concat(this.userArgs);
+      args = args.concat(this.userArgs);
     }
-    console.warn('args', args);
     this.spawned = cp.spawn(chromedriver.path, args);
     this.openProcesses = result;
     this.spawned.stdout.on('data', this._catchDriverLogs.bind(this, deferred));
