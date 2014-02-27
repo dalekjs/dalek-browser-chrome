@@ -438,17 +438,10 @@ var ChromeDriver = {
       this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Switching to user defined port(s): ' + this.port + ' -> ' + this.maxPort);
     }
 
-   * Process user defined arguments
-   *
-   * @method _checkUserDefinedArgs
-   * @param {object} browser Browser configuration
-   */
-
-  _checkUserDefinedArgs: function (browser) {
     // check for a single defined port
     if (browser.chrome && browser.chrome.args && browser.chrome.args instanceof Array) {
-        this.userArgs = browser.chrome.args;
-        this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Adding user defined arguements: ' + this.userArgs.join(' '));
+      this.userArgs = browser.chrome.args;
+      this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Adding user defined arguements: ' + this.userArgs.join(' '));
     }
 
     return this;
