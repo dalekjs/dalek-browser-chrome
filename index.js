@@ -62,7 +62,7 @@ var chromedriver = require('./lib/chromedriver');
  * ```javascript
  * "browsers": [{
  *   "chrome": {
- *     "port": 5555 
+ *     "port": 5555
  *   }
  * }]
  * ```
@@ -72,7 +72,7 @@ var chromedriver = require('./lib/chromedriver');
  * ```javascript
  * "browsers": [{
  *   "chrome": {
- *     "portRange": [6100, 6120] 
+ *     "portRange": [6100, 6120]
  *   }
  * }]
  * ```
@@ -97,7 +97,7 @@ var chromedriver = require('./lib/chromedriver');
  * ```javascript
  * "browsers": [{
  *   "chrome": {
- *     "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
+ *     "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome"
  *   }
  * }]
  * ```
@@ -107,7 +107,7 @@ var chromedriver = require('./lib/chromedriver');
  * ```javascript
  * "browsers": [{
  *   "chrome": {
- *     "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
+ *     "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome"
  *   }
  * }]
  * ```
@@ -154,6 +154,16 @@ var ChromeDriver = {
    */
 
   maxPort: 9092,
+
+  /**
+   * Arguements to send when starting the ChromeWebDriverServer
+   *
+   * @property userArgs
+   * @type array
+   * @default []
+   */
+
+  userArgs: [],
 
   /**
    * Default host of the ChromeWebDriverServer
@@ -219,7 +229,7 @@ var ChromeDriver = {
    *
    * @property openProcesses
    * @type array
-   * @default []   
+   * @default []
    */
 
   openProcesses: [],
@@ -230,7 +240,7 @@ var ChromeDriver = {
    *
    * @property processName
    * @type string
-   * @default chrome.exe / Chrome   
+   * @default chrome.exe / Chrome
    */
 
   processName: (process.platform === 'win32' ? 'chrome.exe' : 'Chrome'),
@@ -431,6 +441,25 @@ var ChromeDriver = {
   },
 
   /**
+   * Process user defined arguments
+   *
+   * @method _checkUserDefinedArgs
+   * @param {object} browser Browser configuration
+   * @chainable
+   * @private
+   */
+
+  _checkUserDefinedArgs: function (browser) {
+    // check for a single defined port
+    if (browser.chrome && browser.chrome.args && browser.chrome.args instanceof Array) {
+        this.userArgs = browser.chrome.args;
+        this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Adding user defined arguements: ' + this.userArgs.join(' '));
+    }
+
+    return this;
+  }
+
+  /**
    * Checks if the binary exists,
    * when set manually by the user
    *
@@ -445,7 +474,7 @@ var ChromeDriver = {
     if (process.platform === 'darwin' && binary.trim()[0] === '~') {
       binary = binary.replace('~', process.env.HOME);
     }
-    
+
     // check if the binary exists
     if (!fs.existsSync(binary)) {
       this.reporterEvents.emit('error', 'dalek-driver-chrome: Binary not found: ' + binary);
@@ -462,7 +491,7 @@ var ChromeDriver = {
   /**
    * Checks if the def. port is blocked & if we need to switch to another port
    * Kicks off the process manager (for closing the opened browsers after the run has been finished)
-   * Also starts the chromedriver instance 
+   * Also starts the chromedriver instance
    *
    * @method _checkPorts
    * @param {object} deferred Promise
@@ -486,7 +515,7 @@ var ChromeDriver = {
 
   /**
    * Spawns an instance of Chromedriver
-   * 
+   *
    * @method _startChromedriver
    * @param {object} deferred Promise
    * @param {null|object} error Error object
@@ -497,6 +526,11 @@ var ChromeDriver = {
 
   _startChromedriver: function (deferred, err, result) {
     var args = ['--port=' + this.getPort(), '--url-base=' + this.path];
+    if(0!==this.userArgs)
+    {
+        args.concat(this.userArgs);
+    }
+    console.warn('args', args);
     this.spawned = cp.spawn(chromedriver.path, args);
     this.openProcesses = result;
     this.spawned.stdout.on('data', this._catchDriverLogs.bind(this, deferred));
@@ -505,7 +539,7 @@ var ChromeDriver = {
 
   /**
    * Watches the chromedriver console output to capture the starting message
-   * 
+   *
    * @method _catchDriverLogs
    * @param {object} deferred Promise
    * @param {buffer} data Chromedriver console output
@@ -540,7 +574,7 @@ var ChromeDriver = {
 
   /**
    * Remove the chromedriver log that is written to the current working directory
-   * 
+   *
    * @method _unlinkChromedriverLog
    * @param {bool} retry Delete has been tried min 1 time before
    * @private
@@ -558,7 +592,7 @@ var ChromeDriver = {
         setTimeout(this._unlinkChromedriverLog.bind(this, true), 1000);
       }
     }
-    
+
     return this;
   },
 
@@ -577,14 +611,14 @@ var ChromeDriver = {
       this._processesWin(fn);
       return this;
     }
-    
+
     this._processesNix(fn);
     return this;
   },
 
   /**
    * Kills all associated processes
-   * 
+   *
    * @method _checkProcesses
    * @param {object|null} err Error object or null
    * @param {array} result List of running processes
@@ -597,7 +631,7 @@ var ChromeDriver = {
     this.reporterEvents.emit('report:log:system', 'dalek-browser-chrome: Shutting down ChromeDriver');
     // kill leftover chrome browser processes
     result.forEach(this[(process.platform === 'win32' ? '_killWindows' : '_killNix')].bind(this));
-    // kill chromedriver binary      
+    // kill chromedriver binary
     this.spawned.kill('SIGTERM');
     // clean up the file mess the chromedriver leaves us behind
     this._unlinkChromedriverLog();
@@ -609,7 +643,7 @@ var ChromeDriver = {
 
   /**
    * Kills a process
-   * 
+   *
    * @method _killNix
    * @param {integer} processID Process ID
    * @chainable
@@ -634,7 +668,7 @@ var ChromeDriver = {
 
   /**
    * Lists all chrome processes on *NIX systems
-   * 
+   *
    * @method _processesNix
    * @param {function} fn Calback
    * @chainable
@@ -650,7 +684,7 @@ var ChromeDriver = {
 
   /**
    * Deserializes a process list on nix
-   * 
+   *
    * @method _processListNix
    * @param {function} fn Calback
    * @param {object|null} err Error object
@@ -668,7 +702,7 @@ var ChromeDriver = {
 
   /**
    * Reformats the process list output on *NIX systems
-   * 
+   *
    * @method _splitProcessListNix
    * @param {array} result Reference to the process list
    * @param {string} line Single process in text representation
@@ -685,7 +719,7 @@ var ChromeDriver = {
 
   /**
    * Filters empty process list entries on *NIX
-   * 
+   *
    * @method _filterProcessItemsNix
    * @param {string} item Item to check
    * @return {string|bool} Item or falsy
@@ -718,7 +752,7 @@ var ChromeDriver = {
 
   /**
    * Deserializes the process list on win
-   * 
+   *
    * @method _processListWin
    * @param {function} callback Callback to be executed after the list has been transformed
    * @param {object|null} err Error if error, else null
@@ -757,7 +791,7 @@ var ChromeDriver = {
 
   /**
    * Processes (transforms) the list of processes
-   * 
+   *
    * @method _filterProcessItemsWin
    * @param {array} result Reference to the result process list
    * @param {object} process Single piece of process information
@@ -776,7 +810,7 @@ var ChromeDriver = {
 
   /**
    * Filters empty lines out of the process result
-   * 
+   *
    * @method _splitProcessListWin
    * @param {array} p Reference to the process list
    * @param {string} line Process item
