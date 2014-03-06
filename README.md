@@ -108,6 +108,20 @@ This also works for the canary & chromium builds
 ```
 $ dalek mytest.js -b chrome
 ```
+### Launch Chrome with flags enabled
+
+Set `chromeOptions` to start a custom instance of Chrome with flags / command lines switches enabled
+for various experimental features. [All command line switches for Chrome](http://peter.sh/experiments/chromium-command-line-switches/).
+
+```javascript
+"browsers": [{
+  "chrome": {
+    "chromeOptions": {
+      "args": ["enable-experimental-web-platform-features", "js-flags=--harmony"]
+    }
+  }
+}]
+```
 
 ## Help Is Just A Click Away
 
