@@ -53,21 +53,21 @@ if this port is blocked, it tries to use a port between 9003 & 9092
 You can specifiy a different port from within your [Dalekfile](/pages/config.html) like so:
 
 ```
-"browsers": {
+"browsers": [{
   "chrome": {
-    "port": 5555 
+    "port": 5555
   }
-}
+}]
 ```
 
 It is also possible to specify a range of ports:
 
 ```
-"browsers": {
+"browsers": [{
   "chrome": {
-    "portRange": [6100, 6120] 
+    "portRange": [6100, 6120]
   }
-}
+}]
 ```
 
 If you would like to test Chrome Canary oder Chromium releases, you can simply apply a snd. argument,
@@ -88,21 +88,21 @@ if the browsers binary is located in a non default location, you are able to spe
 its location in your [Dalekfile](/pages/config.html):
 
 ```javascript
-"browsers": {
+"browsers": [{
   "chrome": {
-    "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
+    "binary": "/Applications/Custom\ Located\ Chrome.app/Contents/MacOS/Google\ Chrome"
   }
-}
+}]
 ```
 
 This also works for the canary & chromium builds
 
 ```javascript
-"browsers": {
+"browsers": [{
   "chrome": {
-    "binary": "/Applications/Custom Located Chrome.app/MacOS/Contents/Chrome" 
+    "binary": "/Applications/Custom\ Located\ Chrome.app/Contents/MacOS/Google\ Chrome"
   }
-}
+}]
 ```
 
 ```
@@ -149,4 +149,3 @@ Google Groups mailing list.
 Copyright (c) 2013 Sebastian Golasch
 
 Distributed under [MIT license](https://github.com/dalekjs/dalek-browser-chrome/blob/master/LICENSE-MIT)
-
