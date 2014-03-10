@@ -10,6 +10,9 @@ dalek-browser-chrome
 [![NPM version](https://badge.fury.io/js/dalek-browser-chrome.png)](http://badge.fury.io/js/dalek-browser-chrome)
 [![Coverage](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/coverage.png)](http://dalekjs.com/package/dalek-browser-chrome/master/coverage/index.html)
 [![unstable](https://rawgithub.com/hughsk/stability-badges/master/dist/unstable.svg)](http://github.com/hughsk/stability-badges)
+[![Stories in Ready](https://badge.waffle.io/dalekjs/dalek-browser-chrome.png?label=ready)](https://waffle.io/dalekjs/dalek-browser-chrome)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dalekjs/dalek-browser-chrome/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 [![NPM](https://nodei.co/npm/dalek-browser-chrome.png)](https://nodei.co/npm/dalek-browser-chrome/)
 [![NPM](https://nodei.co/npm-dl/dalek-browser-chrome.png)](https://nodei.co/npm/dalek-browser-chrome/)
