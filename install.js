@@ -20,7 +20,7 @@ var npmconf = require('npmconf');
 var util = require('util');
 
 var libPath = path.join(__dirname, 'lib', 'bin', 'chromedriver');
-var downloadUrl = 'http://chromedriver.storage.googleapis.com/2.6/chromedriver_';
+var downloadUrl = 'http://chromedriver.storage.googleapis.com/2.9/chromedriver_';
 
 if (process.platform === 'linux' && process.arch === 'x64') {
   downloadUrl += 'linux64.zip';
