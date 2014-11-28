@@ -521,6 +521,7 @@ var ChromeDriver = {
     if (dataStr.search('DVFreeThread') === -1) {
       timeout = setTimeout(function () {
         deferred.reject();
+        this.reporterEvents.emit('error', 'Chromedriver: ' + dataStr.trim());
         this.reporterEvents.emit('error', 'dalek-driver-chrome: Could not launch Chromedriver');
         process.exit(127);
       }.bind(this), 2000);
